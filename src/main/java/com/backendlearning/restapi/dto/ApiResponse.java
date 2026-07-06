@@ -1,12 +1,15 @@
 package com.backendlearning.restapi.dto;
 
-public class ApiResponse {
+public class ApiResponse<T> {
     private String message;
-    private int status;
+    private boolean status;
+    private T data;
 
-    public ApiResponse(String message, int status) {
+    public ApiResponse(String message, boolean status, T data) {
         this.message = message;
         this.status = status;
+        this.data = data;
+
     }
     public String getMessage() {
         return message;
@@ -14,10 +17,16 @@ public class ApiResponse {
     public void setMessage(String message) {
         this.message = message;
     }
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
+    }
+    public void setData(T data){
+        this.data = data;
+    }
+    public T getData(){
+        return data;
     }
 }
